@@ -4,7 +4,6 @@ import App from './component/app/app';
 import './index.scss';
 
 function init() {
-  const a = 2;
   ReactDOM.render(<App />, document.getElementById('root'));
 }
 init();
