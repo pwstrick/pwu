@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import App from './component/app/app';
 
 function init() {
-    ReactDOM.render(<App />, document.getElementById('root'));
+  const a = 2;
+  ReactDOM.render(React.createElement(App, null), document.getElementById('root'));
 }
 init();
-

@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     entry: {
         index: "./src/index.js",
-        //index: "./src/index.tsx",
+        index2: "./src/index.tsx",
     },
     output: {
         path: path.resolve(__dirname, "../dist"),
@@ -17,7 +17,10 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                use: "babel-loader",
+                use: [
+                    'babel-loader', 
+                    {loader: 'eslint-loader', options: {fix: true}} 
+                ],
                 exclude: /node_modules/
             },
             {
@@ -52,7 +55,10 @@ module.exports = {
             },
             {
                 test: /\.tsx?$/,
-                use: [ 'babel-loader', 'ts-loader' ],
+                use: [ 
+                    'ts-loader',
+                    {loader: 'eslint-loader', options: {fix: true}}
+                ],
                 exclude: /node_modules/
             }
         ]
