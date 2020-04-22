@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import App from './component/app/app';
 
 function init() {
-  const a = 4;
+  const a = 5;
   ReactDOM.render(React.createElement(App, null), document.getElementById('root'));
 }
 init();
