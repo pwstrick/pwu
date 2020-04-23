@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./config/webpack.dev.config.js",
-    "build": "webpack --config ./config/webpack.prod.config.js"
+    "build": "webpack --config ./config/webpack.prod.config.js",
+    "test": "jest --coverage"
   },
   "husky": {
     "hooks": {
@@ -17,12 +18,18 @@
       "eslint"
     ]
   },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "identity-obj-proxy"
+    },
+    "transform": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$": "<rootDir>/config/jest/fileTransformer.js",
+      "^.+\\.js$": "babel-jest"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pwstrick/pwu.git"
-  },
-  "bin": {
-    "pwu": "./bin/pwu.js"
   },
   "author": "strick",
   "license": "ISC",
@@ -55,7 +62,9 @@
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.2.0",
     "husky": "^4.2.5",
+    "identity-obj-proxy": "^3.0.0",
     "install": "^0.13.0",
+    "jest": "^25.4.0",
     "lint-staged": "^10.1.7",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
